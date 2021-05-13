@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
 
   onRegister(){
     if(this.registerForm.invalid){
-      alert("invalid form");
+      this.message = "invalid form";
     }
     else{
       const registerInfo = this.registerForm.value;

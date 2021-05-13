@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit {
   userForm:FormGroup=this.fb.group({});
   submitted:boolean=false;
   journey;
+  message = '';
 
   constructor(
     private _busService: BusService,
@@ -40,7 +41,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnSubmit(){
     if(this.userForm.invalid){
-      alert("invalid form");
+      this.message = "invalid form";
     }
     else{
       this._busService.setUserInfo(this.userForm.value);
