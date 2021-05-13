@@ -23,4 +23,19 @@ describe('App', function() {
         expect(sort).to.eql([1]);
     });
 
+    it('function sort should return sorted array when negative numbers are passed', () => {
+        const sort = app.sort([3,-2,4,1]);
+        expect(sort).to.eql([-2,1,3,4]);
+    });
+
+    it('function sort should return sorted array when similar numbers are passed', () => {
+        const sort = app.sort([3,-2,4,1,3,7,5,7,4]);
+        expect(sort).to.eql([-2,1,3,3,4,4,5,7,7]);
+    });
+
+    it('function sort should return sorted array of letters', () => {
+        const sort = app.sort('asdfghs');
+        expect(sort).to.eql('adfghss');
+    });
+
 });
