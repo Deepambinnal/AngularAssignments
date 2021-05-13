@@ -1,0 +1,72 @@
+<div class="overlap">
+<div class="container">
+  <div class="row justify-content-center pb-5 pt-3">
+    <div *ngIf="admin" class="">
+      <p><strong>Covid-19 guidelines file upload</strong></p>
+      <div class="row">
+        <div class="col-8">
+        <label class="btn btn-default p-0">
+            <input type="file" (change)="selectFile($event)" #file/>
+        </label>
+        </div>
+        <div class="col-4">
+        <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+            Upload
+        </button>
+        </div>
+    </div>
+    <div *ngIf="currentFile" class="progress my-3">
+      <div
+      class="progress-bar progress-bar-info progress-bar-striped"
+      role="progressbar"
+      attr.aria-valuenow="{{ progress }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [ngStyle]="{ width: progress + '%' }"
+      >
+      {{ progress }}%
+    </div>
+  </div>
+
+  <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+  </div>
+  <div *ngIf="!admin" class="m-5">
+    <p>Download Covid-19 guidelines and <br> please follow the guidelines and have safe journey!</p>
+    <button (click)="download()" class="btn btn-primary btn-box">Download</button>
+  </div>
+    <div class="col-md-5 block mt-3 card card-body">
+      <form (ngSubmit)="SearchBus(f)" #f=ngForm>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Leaving From</label>
+            <select name="leaving_form" required ngModel class="form-control form-control-sm">
+              <option value="">Select Place</option>
+              <option value="Pune">Pune</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Hubli">Hubli</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Going To</label>
+            <select name="going_to" required ngModel class="form-control form-control-sm">
+              <option value="">Select Place</option>
+              <option value="Pune">Pune</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Hubli">Hubli</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label>Departing On</label>
+            <input type="date" required class="form-control form-control-sm" ngModel name="depart_date" >
+          </div>
+        </div>
+        <button [disabled]="!f.valid" class="btn btn-outline-secondary mt-3 btn-sm"><b>Search Buses</b></button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container box">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bus Number</th>
+                <th>Coach type</th>
+                <th>Departure time</th>
+                <th>Fare</th>
+                <th>No. of Seats</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of availableBuses">
+                <td>{{ b.busNumber }}</td>
+                <td>{{ b.coach_type }}</td>
+                <td>{{ b.time }}</td>
+                <td>{{ b.fare | currency:'INR' }}</td>
+                <td>{{ b.seats }}</td>
+                <!-- <td><button>view seats</button></td> -->
+                <td><button  routerLink="selectSeat/{{b.busNumber}}" class="btn btn-danger btn-sm">View Seats</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <router-outlet></router-outlet>
+</div>
+    <!-- <ng-template #template>
+             
+                    <div class="modal-body">
+                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      <select-seat [bus]="b" (closeModal)="closeModal()"></select-seat>
+                    </div>
+                </ng-template> -->
