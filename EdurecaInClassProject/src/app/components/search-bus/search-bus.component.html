@@ -35,26 +35,21 @@
     <button (click)="download()" class="btn btn-primary btn-box">Download</button>
   </div>
     <div class="col-md-5 block mt-3 card card-body">
+      <div *ngIf="errorMessage" class="alert alert-danger m-2" role="alert">{{ errorMessage }}</div>
       <form (ngSubmit)="SearchBus(f)" #f=ngForm>
         <div class="row">
           <div class="form-group col-md-6">
             <label>Leaving From</label>
             <select name="leaving_form" required ngModel class="form-control form-control-sm">
               <option value="">Select Place</option>
-              <option value="Pune">Pune</option>
-              <option value="Bangalore">Bangalore</option>
-              <option value="Chennai">Chennai</option>
-              <option value="Hubli">Hubli</option>
+              <option *ngFor="let place of places" value="{{ place }}">{{ place }}</option>
             </select>
           </div>
           <div class="form-group col-md-6">
             <label>Going To</label>
             <select name="going_to" required ngModel class="form-control form-control-sm">
               <option value="">Select Place</option>
-              <option value="Pune">Pune</option>
-              <option value="Bangalore">Bangalore</option>
-              <option value="Chennai">Chennai</option>
-              <option value="Hubli">Hubli</option>
+              <option *ngFor="let place of places" value="{{ place }}">{{ place }}</option>
             </select>
           </div>
         </div>

@@ -25,7 +25,6 @@ export class UserService {
       username : uname,
       password : pwd
     }
-    //users[]
     localStorage.setItem('user',JSON.stringify(user));
   }
 

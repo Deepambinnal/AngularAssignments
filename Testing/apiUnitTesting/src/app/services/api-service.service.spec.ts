@@ -19,7 +19,6 @@ describe('ApiServiceService', () => {
     service = TestBed.inject(ApiServiceService);
     injector = getTestBed();
     httpClient = TestBed.inject(HttpClient);
-    //service = injector.get(ApiServiceService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
@@ -46,15 +45,9 @@ describe('ApiServiceService', () => {
         }
       ];
   
-      // service.getData().subscribe(data => {
-      //   expect(data.length).toBe(2);
-      //   expect(data).toEqual(testData);
-      // });
 
       httpClient.get('http://dummy.restapiexample.com/api/v1/employeesx1')
       .subscribe(data =>
-      // When observable resolves, result should match test data
-     // expect(data).toEqual(testData)
       expect(data[0].id).toEqual(testData[0].id)
     );
 
@@ -62,11 +55,6 @@ describe('ApiServiceService', () => {
     expect(req.request.method).toEqual('GET');
     req.flush(testData);
     httpTestingController.verify();
-  
-      // const req = httpMock.expectOne('http://dummy.restapiexample.com/api/v1/employeesx');
-      // expect(req.request.method).toBe("GET");
-      // expect(req.request.responseType).toBe("json");
-      // req.flush(dummyData);
     });
   });
 });

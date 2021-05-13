@@ -18,7 +18,6 @@ export class ContentComponent implements OnInit {
   getData(){
     this.employees=this._apiService.getData();
     this.employees.subscribe(data=>console.log(data.data));
-    //console.log(this.data);
   }
 
   ngOnInit(): void {

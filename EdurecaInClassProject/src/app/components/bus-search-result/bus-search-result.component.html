@@ -17,19 +17,9 @@
                 <td>{{ b.time }}</td>
                 <td>{{ b.fare | currency:'INR' }}</td>
                 <td>{{ b.seats }}</td>
-                <!-- <td><button>view seats</button></td> -->
                 <td><button  routerLink="selectSeat/{{b.busNumber}}" class="btn btn-danger btn-sm">View Seats</button></td>
             </tr>
         </tbody>
     </table>
     <router-outlet></router-outlet>
 </div>
-    <!-- <ng-template #template>
-             
-                    <div class="modal-body">
-                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                      <select-seat [bus]="b" (closeModal)="closeModal()"></select-seat>
-                    </div>
-                </ng-template> -->

@@ -21,6 +21,8 @@ export class SearchBusComponent implements OnInit {
   currentFile?: File;
   progress = 0;
   message = '';
+  places: string[];
+  errorMessage = '';
 
   fileInfos?: Observable<any>;
   allRoutes : any;
@@ -31,7 +33,11 @@ export class SearchBusComponent implements OnInit {
     private _userService:UserService,
     private _uploadFileService:UploadfileService,
     private http:HttpClient
-    ) { }
+    ) { 
+      this.places =[
+        "Pune", "Bangalore", "Chennai", "Hubli"
+      ]
+    }
 
     selectFile(event: any): void {
       this.selectedFiles = event.target.files;
@@ -45,8 +51,6 @@ export class SearchBusComponent implements OnInit {
     
         if (file) {
           this.currentFile = file;
-          console.log(this.currentFile);
-    
           this._uploadFileService.upload(this.currentFile).subscribe(
             (event: any) => {
               if (event.type === HttpEventType.UploadProgress) {
@@ -56,25 +60,22 @@ export class SearchBusComponent implements OnInit {
               }
             },
             (err: any) => {
-              console.log(err);
               this.progress = 0;
-    
               if (err.error && err.error.message) {
                 this.message = err.error.message;
               } else {
                 this.message = 'Could not upload the file!';
               }
-    
               this.currentFile = undefined;
             });
         }
-    
         this.selectedFiles = undefined;
       }
     }
 
     download(): any {
-      return this.http.get('http://localhost:3000/download', {responseType: 'blob'}).subscribe(response =>{
+      let url = 'http://localhost:3000/download';
+      return this.http.get(url, {responseType: 'blob'}).subscribe(response =>{
         console.log("File downloaded successfully");
         let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
         const url = window.URL.createObjectURL(blob);
@@ -96,10 +97,10 @@ export class SearchBusComponent implements OnInit {
 
     this._busService.setValues(leaving_form,destination,date);
     if(leaving_form === destination){
-      alert("Leaving from and destination cannot be same!");
+      this.errorMessage = "Leaving from and destination cannot be same!";
     }
     else if (this._busService.getBuses().length==0){
-      alert("No buses found for this route");
+      this.errorMessage = "No buses found for this route";
     }
     else{this.router.navigate(['busSearch']);}
   }

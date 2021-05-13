@@ -1,8 +1,9 @@
 export interface Bus {
-    busNumber:number,
-    coach_type:string,
-    fare:number,
-    location:string,
-    name:string,
-    time:string                    
+    busNumber: number,
+    coach_type: string,
+    from: string,
+    to: string,
+    time: string,
+    fare: number,
+    seats: number                    
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BusService } from '../../services/bus.service'
-
+import { BusService } from '../../services/bus.service';
+import { user } from '../../models/user.model';
+import { Bus } from '../../models/bus.model';
 @Component({
   selector: 'app-print',
   templateUrl: './print.component.html',
@@ -8,8 +9,12 @@ import { BusService } from '../../services/bus.service'
 })
 export class PrintComponent implements OnInit {
 
-  ticket;
-  user;
+  ticket = {route: {leaving_form: '', going_to: '', date: ''},
+    bus : {busNumber: 0, coach_type: '', from: '', to: '', time: '', seats: 0, fare: 0},
+    seats : [],
+    fare : 0
+  }
+  user = {user_name:'', user_mobile:'', user_email:''}
   ticketId='';
 
   constructor(private _busService: BusService) { }

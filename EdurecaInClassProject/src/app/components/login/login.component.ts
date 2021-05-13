@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  get f(){
+  get registerformControls(){
     return this.registerForm.controls;
   }
 
-  get lf(){
+  get loginformControls(){
     return this.loginForm.controls;
   }
 

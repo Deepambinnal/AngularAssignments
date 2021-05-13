@@ -11,9 +11,9 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class SelectSeatComponent implements OnInit {
 
   showSeatList:Seat[]=[];
-  total:Number=0;
-  busId:Number=0;
-  fare:Number=0;
+  total:number=0;
+  busId:number=0;
+  fare:number=0;
   alert:boolean=false;
   fillupSeat:any[]=[];
 
@@ -26,7 +26,7 @@ export class SelectSeatComponent implements OnInit {
     })
   }
 
-  Seat(s){
+  seat(s){
      let seats;
      this.fare=this._busService.getFare(this.busId);
      seats= this.showSeatList.map(iteam=>{
@@ -36,7 +36,6 @@ export class SelectSeatComponent implements OnInit {
     if((this.fillupSeat.indexOf(String(s))<0) && (seats.indexOf(s)<0)){
       if((this.showSeatList.length!=4)) {
         let id:any = document.getElementById(s);
-        //id.innerHTML = `   <button style="width=30px;"></button>`
         let selectedSeat={
           seatNo:s,
           seatClass:"economy",

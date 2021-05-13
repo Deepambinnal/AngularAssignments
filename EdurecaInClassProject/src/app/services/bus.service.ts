@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as data from '../../app/busesData.json';
+import * as data from '../../assets/data/busesData.json';
 import { Journey_Route } from '../models/route.model';
 import { user } from '../models/user.model';
 
@@ -9,9 +9,9 @@ import { user } from '../models/user.model';
 export class BusService {
   
   allRoutes : any;
-  leaving_form:String='';
-  destination: String='';
-  date:String='';
+  leaving_form:string='';
+  destination: string='';
+  date:string='';
   routes:any[]=[];
   columns=["busNumber", "coach_type","time", "fare", "seats"];
   selectedBus;
@@ -24,7 +24,7 @@ export class BusService {
     this.allRoutes=(data as any).default;
    }
 
-  setValues(leaving_form : String, destination :String, date){
+  setValues(leaving_form: string, destination: string, date){
      this.leaving_form=leaving_form;
      this.destination=destination;
      this.date=date;
@@ -82,7 +82,6 @@ export class BusService {
          seats:jrn.seats,
          fare:this.totalFare
        }
-     console.log(this.journey);
    }
 
   getJourney(){
