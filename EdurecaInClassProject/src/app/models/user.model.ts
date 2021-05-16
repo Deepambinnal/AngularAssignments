@@ -1,5 +1,5 @@
 export interface user{
-    user_name:String,
-    user_mobile:String,
-    user_email:String
+    user_name: string,
+    user_mobile: string,
+    user_email: string
 }

@@ -7,8 +7,8 @@ describe('UploadFileService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule],
-      providers:[UploadfileService]
+      imports: [HttpClientTestingModule],
+      providers: [UploadfileService]
     });
     service = TestBed.inject(UploadfileService);
   });

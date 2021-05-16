@@ -10,33 +10,33 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class SelectSeatComponent implements OnInit {
 
-  showSeatList:Seat[]=[];
-  total:number=0;
-  busId:number=0;
-  fare:number=0;
-  alert:boolean=false;
-  fillupSeat:any[]=[];
+  showSeatList:Seat[] = [];
+  total:number = 0;
+  busId:number = 0;
+  fare:number = 0;
+  alert:boolean = false;
+  fillupSeat:any[] = [];
 
   constructor(private _busService:BusService,private router : Router, private route : ActivatedRoute) {
    }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.busId=parseInt(params.id);
+      this.busId = parseInt(params.id);
     })
   }
 
   seat(s){
      let seats;
-     this.fare=this._busService.getFare(this.busId);
-     seats= this.showSeatList.map(iteam=>{
-     return iteam.seatNo
+     this.fare = this._busService.getFare(this.busId);
+     seats = this.showSeatList.map(item=>{
+     return item.seatNo
      })
     
     if((this.fillupSeat.indexOf(String(s))<0) && (seats.indexOf(s)<0)){
-      if((this.showSeatList.length!=4)) {
+      if((this.showSeatList.length != 4)) {
         let id:any = document.getElementById(s);
-        let selectedSeat={
+        let selectedSeat = {
           seatNo:s,
           seatClass:"economy",
           fare:this.fare
@@ -46,13 +46,13 @@ export class SelectSeatComponent implements OnInit {
         this._busService.setTotal(this.total);
       }
       else{
-        this.alert=true;
+        this.alert = true;
       }
     }
   }
 
   totalFare(fare){
-    this.total+=fare;
+    this.total += fare;
   }
 
   showList(seat){
@@ -60,8 +60,8 @@ export class SelectSeatComponent implements OnInit {
   }
 
   confirmJourney(){
-    let seats= this.showSeatList.map(iteam=>{
-      return iteam.seatNo
+    let seats = this.showSeatList.map(item=>{
+      return item.seatNo
       })
     this._busService.setSeats(seats);
     this.router.navigate(['userProfile']);
