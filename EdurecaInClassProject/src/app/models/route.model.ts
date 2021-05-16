@@ -1,5 +1,5 @@
-export interface Journey_Route {
-    leaving_form: string;
-    going_to: string;
+export interface JourneyRoute {
+    leavingFrom: string;
+    goingTo: string;
     date: string;
 }

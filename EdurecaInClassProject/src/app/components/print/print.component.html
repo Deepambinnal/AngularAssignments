@@ -4,7 +4,7 @@
         <h6 class="text-center pt-3 pb-3 "> Online Reservation    </h6>
         <table class="table ">
         <thead class="card-header">
-        <th class="text-capitalize text-center">{{ticket.route.leaving_form}} <span> <i class="fas fa- arrow-right"></i></span> {{ticket.route.going_to}}</th>
+        <th class="text-capitalize text-center">{{ticket.route.leavingFrom}} <span> <i class="fas fa- arrow-right"></i></span> {{ticket.route.goingTo}}</th>
         <th> {{ticket.route.date}}</th>
         <td></td>
         </thead>  
@@ -18,9 +18,9 @@
                 <th>Total Fare</th> 
                 </tr>
                 <tr>
-                <td><b>{{user.user_name}}</b> <br>
-                    <span>{{user.user_mobile}}</span> <br>
-                    <span>{{user.user_email}}</span>
+                <td><b>{{user.userName}}</b> <br>
+                    <span>{{user.userMobile}}</span> <br>
+                    <span>{{user.userEmail}}</span>
                 </td>
                 <td>{{ticketId}}</td>
                 <td *ngIf="ticket.seats">
@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                 <td>{{ticket.bus.busNumber}} <br>
-                <span> <em>Coach Type: </em>{{ticket.bus.coach_type}} </span>
+                <span> <em>Coach Type: </em>{{ticket.bus.coachType}} </span>
                 </td>
                 <td>Before 30 mints</td>
                 <td>{{ticket.bus.time}}</td>

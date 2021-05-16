@@ -7,8 +7,8 @@ export class UserService {
 
   user ;
   admin = {
-    username : 'admin123',
-    password : 'admin123'
+    userName: 'admin123',
+    password: 'admin123'
   }
   constructor() { }
 
@@ -20,16 +20,16 @@ export class UserService {
     return this.user;
   }
 
-  registerUser(uname:string,pwd:string){
+  registerUser(userName: string, pwd: string){
     let user = {
-      username : uname,
-      password : pwd
+      userName: userName,
+      password: pwd
     }
-    localStorage.setItem('user',JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
-  verifyUser(uname:string,pwd:string){
-    if(uname === this.admin.username){
+  verifyUser(userName: string, pwd: string){
+    if(userName === this.admin.userName){
       if(pwd === this.admin.password){
         this.setUser('admin');
         return true;
@@ -40,7 +40,7 @@ export class UserService {
     }
     else{
       let user =JSON.parse(localStorage.getItem('user') || '{}');
-      if(uname === user.username){
+      if(userName === user.userName){
         if(pwd === user.password){
           this.setUser('others');
           return true;

@@ -23,9 +23,9 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.submitted=true;
     this.userForm=this.fb.group({
-      user_name:['',[Validators.required, Validators.minLength(8)]],
-      user_mobile:['',[Validators.required,Validators.minLength(10)]],
-      user_email:['',[Validators.required,Validators.email]]
+      userName:['',[Validators.required, Validators.minLength(8)]],
+      userMobile:['',[Validators.required,Validators.minLength(10)]],
+      userEmail:['',[Validators.required,Validators.email]]
     })
     this.journey={
       route:this._busService.getJourneyRoutes(),
@@ -35,7 +35,7 @@ export class UserProfileComponent implements OnInit {
     this._busService.setJourney(this.journey);
   }
 
-  get f(){
+  get formControls(){
     return this.userForm.controls;
   }
 

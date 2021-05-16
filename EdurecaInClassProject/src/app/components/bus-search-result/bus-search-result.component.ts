@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Journey_Route } from '../../models/route.model';
 import { NgModule } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { BusService } from '../../services/bus.service';

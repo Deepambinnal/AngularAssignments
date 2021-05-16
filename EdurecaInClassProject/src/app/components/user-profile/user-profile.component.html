@@ -7,21 +7,21 @@
             <form (ngSubmit)="ngOnSubmit()" [formGroup]="userForm" #userF=ngForm>
               <div class="form-group">
                 <label>User Name</label>
-                <input type="text" required formControlName="user_name" minlength="6" class="form-control form-control-sm">
-                <div *ngIf="f.user_name.errors && f.user_name.errors.required && submitted  && f.user_name.touched" class="text-danger">Username required</div>
-                <div *ngIf="f.user_name.errors && f.user_name.errors.minlength && submitted" class="text-danger">Username mrust be have atleast 8 character</div>
+                <input type="text" required formControlName="userName" minlength="6" class="form-control form-control-sm">
+                <div *ngIf="formControls.userName.errors && formControls.userName.errors.required && submitted  && formControls.userName.touched" class="text-danger">Username required</div>
+                <div *ngIf="formControls.userName.errors && formControls.userName.errors.minlength && submitted" class="text-danger">Username mrust be have atleast 8 character</div>
               </div>
               <div class="form-group">
                 <label>User Mobile No</label>
-                <input type="text" required formControlName="user_mobile" minlength="10" class="form-control form-control-sm">
-                <div *ngIf="f.user_mobile.errors && f.user_mobile.errors.required && f.user_mobile.touched" class="text-danger">Mobile no. required</div>
-                <div *ngIf="f.user_mobile.errors && f.user_mobile.errors.minlength && submitted" class="text-danger">mobile no. should be 10 digits</div>
+                <input type="text" required formControlName="userMobile" minlength="10" class="form-control form-control-sm">
+                <div *ngIf="formControls.userMobile.errors && formControls.userMobile.errors.required && formControls.userMobile.touched" class="text-danger">Mobile no. required</div>
+                <div *ngIf="formControls.userMobile.errors && formControls.userMobile.errors.minlength && submitted" class="text-danger">mobile no. should be 10 digits</div>
               </div>
               <div class="form-group">
                 <label>Email </label>
-                <input type="email" required formControlName="user_email" class="form-control form-control-sm">
-                <div *ngIf="f.user_email.errors && f.user_email.errors.required && submitted && f.user_mobile.touched" class="text-danger">Email required</div>
-                <div *ngIf="f.user_email.errors && f.user_email.errors.email && submitted" class="text-danger">Email format is wrong</div>
+                <input type="email" required formControlName="userEmail" class="form-control form-control-sm">
+                <div *ngIf="formControls.userEmail.errors && formControls.userEmail.errors.required && submitted && formControls.userEmail.touched" class="text-danger">Email required</div>
+                <div *ngIf="formControls.userEmail.errors && formControls.userEmail.errors.email && submitted" class="text-danger">Email format is wrong</div>
               </div>
               <button class="btn btn-sm btn-primary">Submit</button>
             </form>

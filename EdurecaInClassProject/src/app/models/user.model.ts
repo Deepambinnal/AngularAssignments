@@ -1,5 +1,5 @@
-export interface user{
-    user_name: string,
-    user_mobile: string,
-    user_email: string
+export interface User{
+    userName: string,
+    userMobile: string,
+    userEmail: string
 }

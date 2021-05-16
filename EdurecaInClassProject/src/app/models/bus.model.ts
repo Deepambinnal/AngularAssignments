@@ -1,6 +1,6 @@
 export interface Bus {
     busNumber: number,
-    coach_type: string,
+    coachType: string,
     from: string,
     to: string,
     time: string,

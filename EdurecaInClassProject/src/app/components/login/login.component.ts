@@ -23,15 +23,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.submitted = true;
     this.registerForm = this.fb.group({
-      user_name: ['',[Validators.required, Validators.minLength(8)]],
-      user_mobile: ['',[Validators.required,Validators.minLength(10)]],
-      user_email: ['',[Validators.required,Validators.email]],
-      user_password: ['',[Validators.required,Validators.minLength(8)]]
+      userName: ['',[Validators.required, Validators.minLength(8)]],
+      userMobile: ['',[Validators.required,Validators.minLength(10)]],
+      userEmail: ['',[Validators.required,Validators.email]],
+      userPassword: ['',[Validators.required,Validators.minLength(8)]]
     })
 
     this.loginForm=this.fb.group({
-      user_name: ['',[Validators.required, Validators.minLength(8)]],
-      user_password: ['',[Validators.required,Validators.minLength(8)]]
+      userName: ['',[Validators.required, Validators.minLength(8)]],
+      userPassword: ['',[Validators.required,Validators.minLength(8)]]
     })
   }
 
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     }
     else{
       const registerInfo = this.registerForm.value;
-      this._userService.registerUser(registerInfo.user_name, registerInfo.user_password);
+      this._userService.registerUser(registerInfo.userName, registerInfo.userPassword);
       this.toggle();
     }
   }
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     }
     else{
       const loginInfo = this.loginForm.value;
-      let verifyUser = this._userService.verifyUser(loginInfo.user_name, loginInfo.user_password);
+      let verifyUser = this._userService.verifyUser(loginInfo.userName, loginInfo.userPassword);
       if(verifyUser == true){
         this.route.navigate(['searchBus']);
       }

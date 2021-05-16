@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse, HttpClient } from '@angular/common/http';
 
-import { Journey_Route } from '../../models/route.model';
+import { JourneyRoute } from '../../models/route.model';
 import { BusService } from '../../services/bus.service';
 import { UserService } from '../../services/user.service';
 import { UploadfileService } from '../../services/upload-file.service';
@@ -75,7 +75,7 @@ export class SearchBusComponent implements OnInit {
 
     download(): any {
       let url = 'http://localhost:3000/download';
-      return this.http.get(url, {responseType: 'blob'}).subscribe(response =>{
+      return this.http.get(url, {responseType: 'blob'}).subscribe(response => {
         console.log("File downloaded successfully");
         let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
         const url = window.URL.createObjectURL(blob);
@@ -91,15 +91,16 @@ export class SearchBusComponent implements OnInit {
   }
 
   SearchBus(form: NgForm){
-    let leaving_form = form.value.leaving_form;
-    let destination = form.value.going_to;
-    let date = form.value.depart_date;
+    let leavingFrom = form.value.leavingFrom;
+    let destination = form.value.goingTo;
+    let date = form.value.departDate;
+    console.log(leavingFrom, destination, date);
 
-    this._busService.setValues(leaving_form,destination,date);
-    if(leaving_form === destination){
+    this._busService.setValues(leavingFrom, destination, date);
+    if(leavingFrom === destination){
       this.errorMessage = "Leaving from and destination cannot be same!";
     }
-    else if (this._busService.getBuses().length==0){
+    else if (this._busService.getBuses().length == 0){
       this.errorMessage = "No buses found for this route";
     }
     else{this.router.navigate(['busSearch']);}
