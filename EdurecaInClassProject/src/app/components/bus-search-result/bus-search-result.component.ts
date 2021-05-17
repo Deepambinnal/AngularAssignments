@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { BusService } from '../../services/bus.service';
-import { Bus } from '../../models/bus.model';
+import type { Bus } from '../../models/bus.model';
 
 @Component({
   selector: 'app-bus-search-result',
@@ -21,9 +21,5 @@ export class BusSearchResultComponent implements OnInit {
   ngOnInit(): void {
     this.availableBuses = this._busService.getBuses();
     this.columns = this._busService.getColumns();
-  }
-
-  openSeatModal(){
-    this.router.navigate(['/.selectSeat']);
   }
 }

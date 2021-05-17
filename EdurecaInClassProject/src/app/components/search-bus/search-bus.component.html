@@ -33,6 +33,7 @@
   <div *ngIf="!admin" class="m-5">
     <p>Download Covid-19 guidelines and <br> please follow the guidelines and have safe journey!</p>
     <button (click)="download()" class="btn btn-primary btn-box">Download</button>
+    <div *ngIf="message" class="alert alert-secondary m-2" role="alert">{{ message }}</div>
   </div>
     <div class="col-md-5 block mt-3 card card-body">
       <div *ngIf="errorMessage" class="alert alert-danger m-2" role="alert">{{ errorMessage }}</div>

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10 ticket card m-5">
-        <h6 class="text-center pt-3 pb-3 "> Online Reservation    </h6>
+        <h6 class="text-center pt-3 pb-3 ">{{ 'translate.ticketTitle' | translate }}</h6>
         <table class="table ">
         <thead class="card-header">
         <th class="text-capitalize text-center">{{ticket.route.leavingFrom}} <span> <i class="fas fa- arrow-right"></i></span> {{ticket.route.goingTo}}</th>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="row">
-        <p class="text-style">** Please Bring this copy to ticket counter for collecting your ticket </p>
+        <p class="text-style">{{ 'translate.required' | translate }} </p>
       </div>
     </div>
   </div>

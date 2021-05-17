@@ -2,24 +2,23 @@ import { NgModule } from '@angular/core';
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SearchBusComponent } from './components/search-bus/search-bus.component';
-import { BusSearchResultComponent } from './components/bus-search-result/bus-search-result.component';
-import { ErrorComponent } from './components/error/error.component';
-import { SelectSeatComponent } from './components/select-seat/select-seat.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { PrintComponent } from './components/print/print.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes : Routes = [
     { path:"", component: LoginComponent },
-    { path:"searchBus", component: SearchBusComponent },
-    { path:"busSearch", component: BusSearchResultComponent, 
-        children:[
-            { path:"selectSeat/:id", component: SelectSeatComponent }
-        ] },
-    { path:"userProfile", component: UserProfileComponent },
-    { path:"print", component: PrintComponent },
-    { path:"**", component: ErrorComponent }
+    { path:"searchBus", loadChildren: () => import('./components/search-bus/search-bus.module').then(mod => mod.SearchBusModule)},
+    { path:"busSearch", loadChildren: () => import('./components/bus-search-result/bus-search-result.module').then(mod => mod.BusSearchResultModule), },
+    { path:"userProfile", loadChildren: () => import('./components/user-profile/user-profile.module').then(mod => mod.UserProfileModule) },
+    { path:"print", loadChildren: () => import('./components/print/print.module').then(mod => mod.PrintModule)},
+    { path:"**", loadChildren: () => import('./components/error/erro.module').then(mod => mod.ErrorModule)}
 ];
 
-export const routing: ModuleWithProviders<any> = RouterModule.forRoot(routes);
+@NgModule({
+    imports:[
+        RouterModule.forRoot(routes) 
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class routing {}

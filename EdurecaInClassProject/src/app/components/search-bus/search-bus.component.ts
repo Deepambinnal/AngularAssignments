@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse, HttpClient } from '@angular/common/http';
 
-import { JourneyRoute } from '../../models/route.model';
 import { BusService } from '../../services/bus.service';
 import { UserService } from '../../services/user.service';
 import { UploadfileService } from '../../services/upload-file.service';
@@ -25,7 +24,6 @@ export class SearchBusComponent implements OnInit {
   errorMessage = '';
 
   fileInfos?: Observable<any>;
-  allRoutes : any;
   admin: boolean = false;
   constructor(
     private router:Router, 
@@ -74,13 +72,11 @@ export class SearchBusComponent implements OnInit {
     }
 
     download(): any {
-      let url = 'http://localhost:3000/download';
-      return this.http.get(url, {responseType: 'blob'}).subscribe(response => {
-        console.log("File downloaded successfully");
+      this._uploadFileService.download()
+      .subscribe(response => {
         let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
         const url = window.URL.createObjectURL(blob);
         fileSaver.saveAs(blob, 'covid-19_guidelines.docx');
-        return response;
       });
     }
 
@@ -94,7 +90,6 @@ export class SearchBusComponent implements OnInit {
     let leavingFrom = form.value.leavingFrom;
     let destination = form.value.goingTo;
     let date = form.value.departDate;
-    console.log(leavingFrom, destination, date);
 
     this._busService.setValues(leavingFrom, destination, date);
     if(leavingFrom === destination){
@@ -103,7 +98,9 @@ export class SearchBusComponent implements OnInit {
     else if (this._busService.getBuses().length == 0){
       this.errorMessage = "No buses found for this route";
     }
-    else{this.router.navigate(['busSearch']);}
+    else{
+      this.router.navigate(['busSearch']);
+    }
   }
 }
 

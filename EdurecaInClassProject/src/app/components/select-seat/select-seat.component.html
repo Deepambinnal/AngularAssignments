@@ -5,203 +5,40 @@
       <div class="seat_plan_wrap">
         <div class="row">
           <div class="col-md-6 card card-head ">
-            <h6 class="title-font">Select Seats </h6>
+            <h6 class="title-font">{{ 'selectSeat.title' | translate }}</h6>
             <div class="seats card-body">
               <div class="row">
                 <ul>
-                  <li>
-                    <a (click)="seat('A1')" id="A1" title="[A1]">
+                  <li *ngFor="let s of seatsColumn1">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
                       <button class="box"> </button>
                     </a>
                   </li>
-                  <li>
-                    <a (click)="seat('B1')" id="B1" title="[B1]">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[C1]" (click)="seat('C1')" id="C1">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[D1]" (click)="seat('D1')" id="D1">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[E1]" (click)="seat('E1')" id="E1">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[F1]" (click)="seat('F1')" id="F1">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[G1]" (click)="seat('G1')" id="G1">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[H1]" (click)="seat('H1')" id="H1">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[I1]" (click)="seat('I1')" id="I1">
-                        <button class="box"> </button>
+                </ul>
+                <ul>
+                  <li *ngFor="let s of seatsColumn2">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
                     </a>
                   </li>
                 </ul>
-
                 <ul>
-                  <li>
-                    <a title="[A2]" (click)="seat('A2')" id="A2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[B2]" (click)="seat('B2')" id="B2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[C2]" (click)="seat('C2')" id="C2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[D2]" (click)="seat('D2')" id="D2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[E2]" (click)="seat('E2')" id="E2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[F2]" (click)="seat('F2')" id="F2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[G2]" (click)="seat('G2')" id="G2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[H2]" (click)="seat('H2')" id="H2">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[I2]" (click)="seat('I2')" id="I2">
-                        <button class="box"> </button>
+                  <li *ngFor="let s of seatsColumn3">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
                     </a>
                   </li>
                 </ul>
-
                 <ul>
-                  <li>
-                    <a title="[A3]" (click)="seat('A3')" id="A3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[B3]" (click)="seat('B3')" id="B3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[C3]" (click)="seat('C3')" id="C3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[D3]" (click)="seat('D3')" id="D3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[E3]" (click)="seat('E3')" id="E3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[F3]" (click)="seat('F3')" id="F3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[G3]" (click)="seat('G3')" id="G3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[H3]" (click)="seat('H3')" id="H3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[I3]" (click)="seat('I3')" id="I3">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                </ul>
-                
-                <ul>
-                  <li>
-                    <a title="[A4]" (click)="seat('A4')" id="A4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[B4]" (click)="seat('B4')" id="B4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[C4]" (click)="seat('C4')" id="C4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[D4]" (click)="seat('D4')" id="D4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[E4]" (click)="seat('E4')" id="E4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[F4]" (click)="seat('F4')" id="F4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[G4]" (click)="seat('G4')" id="G4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[H4]" (click)="seat('H4')" id="H4">
-                        <button class="box"> </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a title="[I4]" (click)="seat('I4')" id="I4">
-                        <button class="box"> </button>
+                  <li *ngFor="let s of seatsColumn4">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            <div *ngIf="alert"class="alert alert-danger ">You can buy only 4 seats in one time </div>
+            <div *ngIf="alert"class="alert alert-danger ">{{ 'selectSeat.maxSeatError' | translate }}</div>
           </div>
           <div class="col-md-6 card card-body">
           <div class="seat_plan">

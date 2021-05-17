@@ -1,4 +1,4 @@
-export interface Bus {
+export type Bus = {
     busNumber: number,
     coachType: string,
     from: string,

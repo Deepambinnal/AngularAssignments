@@ -1,0 +1,10 @@
+{
+    "translate": {
+        "required": "** Please Bring this copy to ticket counter for collecting your ticket",
+        "ticketTitle":"Online Reservation"
+    },
+    "selectSeat": {
+        "maxSeatError": "You can buy only 4 seats in one time ",
+        "title": "Select Seats"
+    }
+}

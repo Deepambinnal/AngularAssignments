@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as data from '../../assets/data/busesData.json';
-import { JourneyRoute } from '../models/route.model';
-import { User } from '../models/user.model';
-import { Bus } from '../models/bus.model';
+import type { JourneyRoute } from '../models/route.model';
+import type { User } from '../models/user.model';
+import type { Bus } from '../models/bus.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +28,9 @@ export class BusService {
   seats = [];
   user: User = {userName: '', userMobile: '', userEmail: ''};
   journey = {route: {leavingFrom: '', goingTo: '', date: ''},
-  bus: {busNumber: 0, coachType: '', from: '', to: '', time: '', seats: 0, fare: 0},
-  seats: [],
-  fare: 0
+    bus: {busNumber: 0, coachType: '', from: '', to: '', time: '', seats: 0, fare: 0},
+    seats: [],
+    fare: 0
   };
 
   constructor() {
@@ -52,7 +52,7 @@ export class BusService {
      return this.columns;
    }
 
-  getFare(id: Number){
+  getFare(id: number){
      this.selectedBus = this.allRoutes.filter(rt => rt.busNumber === id)[0];
      return this.selectedBus.fare;
      }

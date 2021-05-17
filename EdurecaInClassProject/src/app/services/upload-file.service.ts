@@ -22,11 +22,10 @@ export class UploadfileService {
       reportProgress: true,
       responseType: 'json',
     });
-
     return this.http.request(req);
   }
 
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+  download(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/download`, {responseType: 'blob'});
   }
 }

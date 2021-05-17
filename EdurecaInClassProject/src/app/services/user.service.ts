@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
+import type { admin } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  user ;
-  admin = {
-    userName: 'admin123',
-    password: 'admin123'
-  }
-  constructor() { }
+  user: string = '';
+  admin: admin;
 
-  setUser(user){
+  constructor() {
+    this.admin = {
+      userName: 'admin123',
+      password: 'admin123'
+    }
+   }
+
+  setUser(user: string){
     this.user = user;
   }
 

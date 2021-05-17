@@ -35,29 +35,29 @@ describe('LoginComponent', () => {
   });
 
   it('log in should return username or password incorrect', () => {
-    component.loginForm.setValue({user_name: 'admin123',user_password: 'admin156'});
+    component.loginForm.setValue({userName: 'admin123',userPassword: 'admin156'});
     const login = component.onLogin();
     expect(component.message).toBe("username or password is not correct");
   });
   
   it('log in should return invalid form', () => {
-    component.loginForm.setValue({user_name: 'admin123',user_password: ''});
+    component.loginForm.setValue({userName: 'admin123',userPassword: ''});
     const login = component.onLogin();
     expect(component.message).toBe("invalid form");
   });
 
   it('login should route to SearchBus component', () => {
-    component.loginForm.setValue({user_name: 'admin123',user_password: 'admin123'});
+    component.loginForm.setValue({userName: 'admin123',userPassword: 'admin123'});
     const login = component.onLogin();
     expect (mockRouter.navigate).toHaveBeenCalledWith(['searchBus']);
   });
 
   it('Register should return invalid form', () => {
     const register_user = {
-      user_name: "Roopa123",
-      user_mobile: "1234567890",
-      user_email: "roopa@live.com",
-      user_password: "roopa"
+      userName: "Roopa123",
+      userMobile: "1234567890",
+      userEmail: "roopa@live.com",
+      userPassword: "roopa"
     }
     component.registerForm.setValue(register_user);
     const register = component.onRegister();
@@ -65,17 +65,17 @@ describe('LoginComponent', () => {
   });
 
   it('Register should should store the user credentials in localstorage', () => {
-    const register_user = {
-      user_name: "Roopa123",
-      user_mobile: "1234567890",
-      user_email: "roopa@live.com",
-      user_password: "roopa123"
+    const registerUser = {
+      userName: "Roopa123",
+      userMobile: "1234567890",
+      userEmail: "roopa@live.com",
+      userPassword: "roopa123"
     }
-    component.registerForm.setValue(register_user);
+    component.registerForm.setValue(registerUser);
     const register = component.onRegister();
     let registredUser =JSON.parse(localStorage.getItem('user') || '{}');
-    expect(registredUser.username).toBe(register_user.user_name);
-    expect(registredUser.password).toBe(register_user.user_password);
+    expect(registredUser.userName).toBe(registerUser.userName);
+    expect(registredUser.password).toBe(registerUser.userPassword);
   });
 
 });
