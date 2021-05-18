@@ -1,0 +1,20 @@
+{
+    "translate": {
+        "required": "** Please Bring this copy to ticket counter for collecting your ticket",
+        "ticketTitle":"Online Reservation"
+    },
+    "selectSeat": {
+        "maxSeatError": "You can buy only 4 seats in one time ",
+        "title": "Select Seats"
+    },
+    "searchBus": {
+        "sourceDestError": "Source and destination cannot be same!",
+        "noRoutes": "No buses found for this route",
+        "covidFIle": "Covid-19 guidelines file upload",
+        "covidGuidelines": "Download Covid-19 guidelines and please follow the guidelines and have safe journey!"
+    },
+    "login": {
+        "invalid": "Invalid form",
+        "userError": "Username or password is not correct"
+    }
+}

@@ -1,0 +1,45 @@
+<div class="container mt-4 ">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-8 block user card card-body">
+            <h5 class="title">Passanger Info</h5>
+            <form (ngSubmit)="ngOnSubmit()" [formGroup]="userForm" #userF=ngForm>
+              <div class="form-group">
+                <label>User Name</label>
+                <input type="text" required formControlName="userName" minlength="6" class="form-control form-control-sm">
+                <div *ngIf="formControls.userName.errors && formControls.userName.errors.required && submitted  && formControls.userName.touched" class="text-danger">Username required</div>
+                <div *ngIf="formControls.userName.errors && formControls.userName.errors.minlength && submitted" class="text-danger">Username mrust be have atleast 8 character</div>
+              </div>
+              <div class="form-group">
+                <label>User Mobile No</label>
+                <input type="text" required formControlName="userMobile" minlength="10" class="form-control form-control-sm">
+                <div *ngIf="formControls.userMobile.errors && formControls.userMobile.errors.required && formControls.userMobile.touched" class="text-danger">Mobile no. required</div>
+                <div *ngIf="formControls.userMobile.errors && formControls.userMobile.errors.minlength && submitted" class="text-danger">mobile no. should be 10 digits</div>
+              </div>
+              <div class="form-group">
+                <label>Email </label>
+                <input type="email" required formControlName="userEmail" class="form-control form-control-sm">
+                <div *ngIf="formControls.userEmail.errors && formControls.userEmail.errors.required && submitted && formControls.userEmail.touched" class="text-danger">Email required</div>
+                <div *ngIf="formControls.userEmail.errors && formControls.userEmail.errors.email && submitted" class="text-danger">Email format is wrong</div>
+              </div>
+              <button class="btn btn-sm btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <div *ngIf="journey" class="card card-body block j_details">
+              <h6>Journey Details</h6>
+              <hr>
+              <h5 class="text-capitalize"style="color:coral"> {{journey.route.source}} to {{journey.route.destination}} </h5>
+              <p> Date : {{journey.route.date}} </p>
+              <p> Time : {{journey.bus.time}}</p>
+              <p>Bus Number : {{journey.bus.busNumber}} <br>
+                  <span>Coach Type : {{journey.bus.coachType}}  </span>
+              </p>
+              <p>Seats No ( <li style="display:inline;color:coral" *ngFor="let s of journey.seats">{{s}} , </li> )</p>
+            </div> 
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<div class="container box">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bus Number</th>
+                <th>Coach type</th>
+                <th>Departure time</th>
+                <th>Fare</th>
+                <th>No. of Seats</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of availableBuses">
+                <td>{{ b.busNumber }}</td>
+                <td>{{ b.coachType }}</td>
+                <td>{{ b.time }}</td>
+                <td>{{ b.fare | currency:'INR' }}</td>
+                <td>{{ b.seats }}</td>
+                <td><button  routerLink="selectSeat/{{b.busNumber}}" class="btn btn-danger btn-sm">View Seats</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <router-outlet></router-outlet>
+</div>

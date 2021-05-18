@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 ticket card m-5">
+        <h6 class="text-center pt-3 pb-3 ">{{ 'translate.ticketTitle' | translate }}</h6>
+        <table class="table ">
+        <thead class="card-header">
+        <th class="text-capitalize text-center">{{ticket.route.source}} <span> <i class="fas fa- arrow-right"></i></span> {{ticket.route.destination}}</th>
+        <th> {{ticket.route.date}}</th>
+        <td></td>
+        </thead>  
+        </table>
+        <div class="card card-body m-2">
+            <table class="table ps_details table-borderless">
+                <tr>
+                <th>Passenger Details</th>
+                <th>Ticket Id</th>
+                <th>Seat No</th>
+                <th>Total Fare</th> 
+                </tr>
+                <tr>
+                <td><b>{{user.userName}}</b> <br>
+                    <span>{{user.userMobile}}</span> <br>
+                    <span>{{user.userEmail}}</span>
+                </td>
+                <td>{{ticketId}}</td>
+                <td *ngIf="ticket.seats">
+                <span  *ngFor="let s of ticket.seats">{{s}} </span> 
+                </td>
+                <td>{{ticket.fare}} </td>
+                </tr>
+            </table>
+        </div>
+        <div class="card card-body m-2">
+            <table class="table table-borderless ps_details">
+                <tr>
+                <th>Bus Number</th>
+                <th>Reporting Time </th>
+                <th>Departure Time</th>
+                </tr>
+                <tr>
+                <td>{{ticket.bus.busNumber}} <br>
+                <span> <em>Coach Type: </em>{{ticket.bus.coachType}} </span>
+                </td>
+                <td>Before 30 mints</td>
+                <td>{{ticket.bus.time}}</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+      <div class="row">
+        <p class="text-style">{{ 'translate.required' | translate }} </p>
+      </div>
+    </div>
+  </div>

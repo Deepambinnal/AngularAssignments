@@ -1,0 +1,74 @@
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9 ">
+      <div class="seat_plan_wrap">
+        <div class="row">
+          <div class="col-md-6 card card-head ">
+            <h6 class="title-font">{{ 'selectSeat.title' | translate }}</h6>
+            <div class="seats card-body">
+              <div class="row">
+                <ul>
+                  <li *ngFor="let s of seatsColumn1">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
+                    </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li *ngFor="let s of seatsColumn2">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
+                    </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li *ngFor="let s of seatsColumn3">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
+                    </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li *ngFor="let s of seatsColumn4">
+                    <a (click)="seat(s)" [id]="s" [title]="s">
+                      <button class="box"> </button>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div *ngIf="alert"class="alert alert-danger ">{{ 'selectSeat.maxSeatError' | translate }}</div>
+          </div>
+          <div class="col-md-6 card card-body">
+          <div class="seat_plan">
+            <table class="table ">
+              <thead>
+                <tr>
+                  <th>Seats</th>
+                  <th>Fare</th>
+                  <th>Class</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let s of showSeatList">
+                  <td>{{s.seatNo}}</td>
+                  <td>{{s.fare}}</td>
+                  <td>{{s.seatClass}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+            <div class="total  bg-default">
+              <b>Total: {{total}}</b>
+            </div>
+            <div class="row ">
+              <button (click)="confirmJourney()"class="btn mt-3 ml-3 btn-primary btn-sm btn-block ">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+

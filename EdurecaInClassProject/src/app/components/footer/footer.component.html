@@ -1,0 +1,29 @@
+<div class="footer">
+
+    <div class="container">
+      <div class="row mt-5 mb-5">
+        <div class="col-md-6 ">
+          <div class="card card-body box">
+            <h5 class="text-center mb-3">Popular Roads</h5>
+                <ul class="row">
+                    <li *ngFor="let road of roads " class="col-md-6">{{ road }} </li>
+                </ul>
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+        <div class="card card-body box" >                          
+            <div class="info_right">
+                <h5 class="text-center mb-3">Why buy tickets from us?</h5>
+                <ul class="row">
+                  <li *ngFor="let why of why_buy " class="col-md-6">{{ why }} </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="row pt-5 mb-5 justify-content-center">
+        <img [src]="img" class="d-block img-fluid" alt="">
+      </div>
+    </div>
+  </div>

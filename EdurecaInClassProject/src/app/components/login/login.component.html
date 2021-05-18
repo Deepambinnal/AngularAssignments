@@ -1,0 +1,54 @@
+<div class="container">
+  <div *ngIf="message" class="alert alert-danger m-3">{{message}}</div>
+  <div *ngIf="login" class="col-md-8 block user card card-body m-5">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" required formControlName="userName" minlength="6" class="form-control form-control-sm">
+            <div *ngIf="loginformControls.userName.errors && loginformControls.userName.errors.required && submitted  && loginformControls.userName.touched" class="text-danger">Username required</div>
+            <div *ngIf="loginformControls.userName.errors && loginformControls.userName.errors.minlength && submitted" class="text-danger">Username mrust be have atleast 8 character</div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" required formControlName="userPassword" minlength="8" class="form-control form-control-sm">
+            <div *ngIf="loginformControls.userPassword.errors && loginformControls.userPassword.errors.required && loginformControls.userPassword.touched" class="text-danger">Paaword is required</div>
+            <div *ngIf="loginformControls.userPassword.errors && loginformControls.userPassword.errors.minlength && submitted" class="text-danger">Password should have minimum 8 digits</div>
+        </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button (click)="toggle()" class="btn btn-secondary m-3">Register</button>
+    </form>
+  </div>
+  <div *ngIf="register"  class="col-md-8 block user card card-body m-5">
+    <h2>Register</h2>
+    <form (ngSubmit)="onRegister()" [formGroup]="registerForm">
+      <div class="form-group">
+        <label>User Name</label>
+        <input type="text" required formControlName="userName" minlength="6" class="form-control form-control-sm">
+        <div *ngIf="registerformControls.userName.errors && registerformControls.userName.errors.required && submitted  && registerformControls.userName.touched" class="text-danger">Username required</div>
+        <div *ngIf="registerformControls.userName.errors && registerformControls.userName.errors.minlength && submitted" class="text-danger">Username mrust be have atleast 8 character</div>
+      </div>
+      <div class="form-group">
+        <label>User Mobile No</label>
+        <input type="text" required formControlName="userMobile" minlength="10" class="form-control form-control-sm">
+        <div *ngIf="registerformControls.userMobile.errors && registerformControls.userMobile.errors.required && registerformControls.userMobile.touched" class="text-danger">Mobile no. required</div>
+        <div *ngIf="registerformControls.userMobile.errors && registerformControls.userMobile.errors.minlength && submitted" class="text-danger">Mobile no. should be 10 digits</div>
+      </div>
+      <div class="form-group">
+        <label>Email </label>
+        <input type="email" required formControlName="userEmail" class="form-control form-control-sm">
+        <div *ngIf="registerformControls.userEmail.errors && registerformControls.userEmail.errors.required && submitted && registerformControls.userEmail.touched" class="text-danger">Email required</div>
+        <div *ngIf="registerformControls.userEmail.errors && registerformControls.userEmail.errors.email && submitted" class="text-danger">Email format is wrong</div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" required formControlName="userPassword" minlength="8" class="form-control form-control-sm">
+        <div *ngIf="registerformControls.userPassword.errors && registerformControls.userPassword.errors.required && registerformControls.userPassword.touched" class="text-danger">Paaword is required</div>
+        <div *ngIf="registerformControls.userPassword.errors && registerformControls.userPassword.errors.minlength && submitted" class="text-danger">Password should have minimum 8 digits</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p>Already have a account ??
+    <button (click)="toggle()" class="btn btn-secondary m-3 btn-box">Login</button></p>
+  </div>
+</div>

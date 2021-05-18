@@ -1,0 +1,16 @@
+[
+    {"busNumber": 1020, "coachType": "AC", "source": "Bangalore", "destination": "Hubli", "time": "8:00 PM", "fare": 850," seats": 36},
+    {"busNumber": 1111, "coachType": "NON-AC", "source": "Bangalore","destination":"Hubli", "time": "9:00 PM", "fare": 750, "seats": 36},
+    {"busNumber": 1234, "coachType": "AC", "source": "Hubli","destination":"Bangalore", "time": "8:00 PM", "fare": 850, "seats": 36},
+    {"busNumber": 1212, "coachType": "NON-AC", "source": "Hubli","destination":"Bangalore", "time": "9:00 PM", "fare": 750, "seats": 36},
+    {"busNumber": 1122, "coachType": "NON-AC", "source": "Bangalore","destination":"Pune", "time": "8:00 PM", "fare": 870, "seats": 36},
+    {"busNumber": 1423, "coachType": "AC", "source": "Bangalore","destination":"Pune", "time": "9:00 PM", "fare": 950, "seats": 36},
+    {"busNumber": 1092, "coachType": "NON-AC", "source": "Pune","destination":"Bangalore", "time": "8:00 PM", "fare": 850, "seats": 36},
+    {"busNumber": 1078, "coachType": "AC", "source": "Pune","destination":"Bangalore", "time": "9:00 PM", "fare": 950, "seats": 36},
+    {"busNumber": 1063, "coachType": "NON-AC", "source": "Bangalore","destination":"Chennai", "time": "8:00 PM", "fare": 700, "seats": 36},
+    {"busNumber": 1025, "coachType": "AC", "source": "Bangalore","destination":"Chennai", "time": "9:00 PM", "fare": 850, "seats": 36},
+    {"busNumber": 1233, "coachType": "NON_AC", "source": "Chennai","destination":"Bangalore", "time": "8:00 PM", "fare": 750, "seats": 36},
+    {"busNumber": 1189, "coachType": "AC", "source": "Chennai","destination":"Bangalore", "time": "9:00 PM", "fare": 850, "seats": 36},
+    {"busNumber": 1967, "coachType": "NON-AC", "source": "Bangalore","destination":"Hubli", "time": "10:00 PM", "fare": 790, "seats": 36},
+    {"busNumber": 1123, "coachType": "AC", "source": "Bangalore","destination":"Pune", "time": "10:00 PM", "fare": 850, "seats": 36}
+]
