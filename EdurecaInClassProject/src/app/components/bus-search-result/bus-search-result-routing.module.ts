@@ -9,9 +9,8 @@ const routes: Routes = [
    children:[
    { path:"selectSeat/:id", pathMatch: 'full', component:SelectSeatComponent}
    ]
-},
-  
-];
+  },
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

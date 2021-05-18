@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
   submitted: boolean=false;
   message = '';
 
-  constructor(private route:Router, private fb:FormBuilder, private _userService:UserService) { }
+  constructor(private route:Router, private fb:FormBuilder, private _userService:UserService, private translate: TranslateService) { 
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
     this.submitted = true;
@@ -50,7 +53,7 @@ export class LoginComponent implements OnInit {
 
   onRegister(){
     if(this.registerForm.invalid){
-      this.message = "invalid form";
+      this.message = this.translate.instant('login.invalid');
     }
     else{
       const registerInfo = this.registerForm.value;
@@ -61,7 +64,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(){
     if(this.loginForm.invalid){
-      this.message = "invalid form";
+      this.message = this.translate.instant('login.invalid');
     }
     else{
       const loginInfo = this.loginForm.value;
@@ -70,7 +73,7 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['searchBus']);
       }
       else{
-        this.message = "username or password is not correct";
+        this.message = this.translate.instant('login.userError');
       }
     }
   }

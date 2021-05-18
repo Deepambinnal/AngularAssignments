@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as data from '../../assets/data/busesData.json';
-import type { JourneyRoute } from '../models/route.model';
-import type { User } from '../models/user.model';
-import type { Bus } from '../models/bus.model';
+import { JourneyRoute } from '../models/route.model';
+import { User } from '../models/user.model';
+import { Bus } from '../models/bus.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import type { Bus } from '../models/bus.model';
 export class BusService {
   
   allRoutes: Bus[];
-  leavingFrom: string = '';
+  source: string = '';
   destination: string = '';
   date: string = '';
   routes: any[] = [];
@@ -18,8 +18,8 @@ export class BusService {
   selectedBus: Bus = {
    busNumber: 0,
    coachType: '',
-   from: '',
-   to: '',
+   source: '',
+   destination: '',
    time: '',
    fare: 0,
    seats: 0
@@ -27,8 +27,8 @@ export class BusService {
   totalFare: number = 0;
   seats = [];
   user: User = {userName: '', userMobile: '', userEmail: ''};
-  journey = {route: {leavingFrom: '', goingTo: '', date: ''},
-    bus: {busNumber: 0, coachType: '', from: '', to: '', time: '', seats: 0, fare: 0},
+  journey = {route: {source: '', destination: '', date: ''},
+    bus: {busNumber: 0, coachType: '', source: '', destination: '', time: '', seats: 0, fare: 0},
     seats: [],
     fare: 0
   };
@@ -37,14 +37,14 @@ export class BusService {
     this.allRoutes = (data as any).default;
    }
 
-  setValues(leavingFrom: string, destination: string, date){
-     this.leavingFrom = leavingFrom;
+  setValues(source: string, destination: string, date){
+     this.source = source;
      this.destination = destination;
      this.date = date;
    }
 
   getBuses(){
-    this.routes = this.allRoutes.filter( rt => rt.from === this.leavingFrom && rt.to === this.destination );
+    this.routes = this.allRoutes.filter( rt => rt.source === this.source && rt.destination === this.destination );
     return this.routes;
    }
 
@@ -67,8 +67,8 @@ export class BusService {
     
   getJourneyRoutes(){
       let journey: JourneyRoute = {
-         leavingFrom: this.leavingFrom,
-         goingTo: this.destination,
+         source: this.source,
+         destination: this.destination,
          date: this.date
       }
       return(journey);

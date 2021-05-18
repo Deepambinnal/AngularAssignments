@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { BusService } from '../../services/bus.service';
-import type { Bus } from '../../models/bus.model';
+import { Bus } from '../../models/bus.model';
 
 @Component({
   selector: 'app-bus-search-result',

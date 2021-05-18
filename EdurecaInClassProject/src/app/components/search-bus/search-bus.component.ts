@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse, HttpClient } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 
 import { BusService } from '../../services/bus.service';
 import { UserService } from '../../services/user.service';
@@ -30,11 +31,13 @@ export class SearchBusComponent implements OnInit {
     private _busService:BusService, 
     private _userService:UserService,
     private _uploadFileService:UploadfileService,
-    private http:HttpClient
+    private http:HttpClient,
+    private translate: TranslateService
     ) { 
       this.places =[
         "Pune", "Bangalore", "Chennai", "Hubli"
-      ]
+      ];
+      translate.setDefaultLang('en');
     }
 
     selectFile(event: any): void {
@@ -87,16 +90,16 @@ export class SearchBusComponent implements OnInit {
   }
 
   SearchBus(form: NgForm){
-    let leavingFrom = form.value.leavingFrom;
-    let destination = form.value.goingTo;
+    let source = form.value.source;
+    let destination = form.value.destination;
     let date = form.value.departDate;
 
-    this._busService.setValues(leavingFrom, destination, date);
-    if(leavingFrom === destination){
-      this.errorMessage = "Leaving from and destination cannot be same!";
+    this._busService.setValues(source, destination, date);
+    if(source === destination){
+      this.errorMessage = this.translate.instant('searchBus.sourceDestError');
     }
     else if (this._busService.getBuses().length == 0){
-      this.errorMessage = "No buses found for this route";
+      this.errorMessage = this.translate.instant('searchBus.noRoutes');
     }
     else{
       this.router.navigate(['busSearch']);

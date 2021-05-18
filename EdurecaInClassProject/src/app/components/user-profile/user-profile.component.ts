@@ -11,8 +11,8 @@ import { BusService } from '../../services/bus.service'
 export class UserProfileComponent implements OnInit {
   userForm:FormGroup=this.fb.group({});
   submitted:boolean=false;
-  journey = {route: {leavingFrom: '', goingTo: '', date: ''},
-    bus: {busNumber: 0, coachType: '', from: '', to: '', time: '', seats: 0, fare: 0},
+  journey = {route: {source: '', destination: '', date: ''},
+    bus: {busNumber: 0, coachType: '', source: '', destination: '', time: '', seats: 0, fare: 0},
     seats: []
   };
   message = '';

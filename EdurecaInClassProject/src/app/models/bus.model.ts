@@ -1,8 +1,8 @@
 export type Bus = {
     busNumber: number,
     coachType: string,
-    from: string,
-    to: string,
+    source: string,
+    destination: string,
     time: string,
     fare: number,
     seats: number                    

@@ -1,5 +1,5 @@
 export type JourneyRoute = {
-    leavingFrom: string;
-    goingTo: string;
+    source: string;
+    destination: string;
     date: string;
 };

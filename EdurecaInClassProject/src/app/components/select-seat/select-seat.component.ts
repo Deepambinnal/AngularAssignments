@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusService } from '../../services/bus.service';
-import type { Seat } from '../../models/seat.model';
+import { Seat } from '../../models/seat.model';
 import {Router, ActivatedRoute} from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 

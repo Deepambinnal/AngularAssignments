@@ -11,8 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class PrintComponent implements OnInit {
 
-  ticket = {route: {leavingFrom: '', goingTo: '', date: ''},
-    bus : {busNumber: 0, coachType: '', from: '', to: '', time: '', seats: 0, fare: 0},
+  ticket = {route: {source: '', destination: '', date: ''},
+    bus : {busNumber: 0, coachType: '', source: '', destination: '', time: '', seats: 0, fare: 0},
     seats : [],
     fare : 0
   }
